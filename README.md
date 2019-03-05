@@ -23,7 +23,7 @@ When you have completed this code pattern, you will understand how to:
 # Architecture flow
 
 <p align="center">
-  <img src="docs/doc-images/arch-flow.png">
+  <img src="docs/doc-images/Blockchain-Netork-arch-diagram.png">
 </p>
 
 1. The developer uses the IBM Blockchain Platform Extension for VS Code to package the Decentralized Energy smart contract.
