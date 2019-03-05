@@ -1,0 +1,11 @@
+{
+    "channel_name": "mychannel",
+    "smart_contract_name": "bnnetwork",
+    "connection_file": "mychannel_bnnetwork_profile.json",
+    "appAdmin": "app-admin",
+    "appAdminSecret": "app-adminpw",
+    "orgMSPID": "org1msp",
+    "caName": "173.193.79.114:31853",
+    "userName": "user1",
+    "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+}
