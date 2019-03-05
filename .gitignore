@@ -8,7 +8,7 @@ npm-debug.log
 
 ./application/mychannel_blockchain-network_profile.json
 ./application/mychannel_bnnetwork_profile.json
-./contract/bnnetwork@0.0.1.cds
+./bnnetwork@0.0.1.cds
 ./contract/blockchain-network@0.0.1.cds
 
 ./contract/.vscode/
