@@ -36,9 +36,12 @@ async function main() {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('bnnetwork');
+        const contract = network.getContract('blockchain-network');
 
 
+        //Begin submitting transactions
+
+        //Submit create a trader transaction
         console.log('\nSubmit AddTrader transaction.');
         var traderId = "traderA";
         var firstName = "Carlos";
@@ -49,6 +52,8 @@ async function main() {
         console.log('addTraderAResponse_JSON.parse: ');
         console.log(JSON.parse(addTraderAResponse.toString()));
 
+        
+        //Submit create a second trader transaction
         console.log('\nSubmit AddTrader transaction.');
         var traderId = "traderB";
         var firstName = "Lisa";
@@ -59,6 +64,8 @@ async function main() {
         console.log('addTraderBResponse_JSON.parse: ');
         console.log(JSON.parse(addTraderBResponse.toString()));
 
+        
+        //Submit create a commodity transaction
         console.log('\nSubmit AddCommodity transaction.');
         var tradingSymbol = "commodityA"; 
         var description = "farm-commodity"; 
@@ -69,6 +76,8 @@ async function main() {
         console.log('addCommodityResponse_JSON.parse: ');
         console.log(JSON.parse(addCommodityResponse.toString()));
 
+        
+        //Submit create transaction to reassign the owner of the commodity - hence simulating a trade
         console.log('\nSubmit Commodity trade transaction.');
         var tradingSymbol = "commodityA";
         var traderId = "traderB";

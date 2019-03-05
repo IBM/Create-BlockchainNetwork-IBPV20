@@ -6,6 +6,8 @@
 
 const { Contract } = require('fabric-contract-api');
 
+
+//Standard class to instantiate for creating a smart contract
 class MyContract extends Contract {
 
 
@@ -18,8 +20,7 @@ class MyContract extends Contract {
     }
 
 
-    // participant functions 
-
+    // define participant function 
     async AddTrader(ctx, traderId, firstName, lastName) {
 
         var trader = {
@@ -40,9 +41,10 @@ class MyContract extends Contract {
         return JSON.stringify(trader);
     }
 
+    // define creating the asset function 
     async AddCommodity(ctx, tradingSymbol, description, traderId) {
 
-        // verify id and retreive seller
+        // verify trader id exists and retreive it 
         let traderData = await ctx.stub.getState(traderId);
         let trader;
         if (traderData) {
@@ -70,7 +72,7 @@ class MyContract extends Contract {
 
 
 
-    //change owner of commodity
+    // Define performing a trade where a new owner of the asset is assigned
     async commodityTrade(ctx, tradingSymbol, traderId) {
 
         // verify id 
