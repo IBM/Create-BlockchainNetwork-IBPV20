@@ -44,7 +44,7 @@ class MyContract extends Contract {
     // define creating the asset function 
     async AddCommodity(ctx, tradingSymbol, description, traderId) {
 
-        // verify trader id exists and retreive it 
+        // verify trader id exists and retrieve it 
         let traderData = await ctx.stub.getState(traderId);
         let trader;
         if (traderData) {
