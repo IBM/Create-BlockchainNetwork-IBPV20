@@ -9,7 +9,7 @@ Welcome to the first in a series of building a Blockchain application using the 
 
 Hyperledger Fabric is a blockchain framework implementation and one of the Hyperledger projects hosted by The Linux Foundation. Intended as a foundation for developing applications or solutions with a modular architecture, Hyperledger Fabric allows components, such as consensus and membership services, to be plug-and-playIn
 
-[Part 2](https://github.com/IBM/BlockchainSmartContractTrading-CompositeJourney), we will explore more about creating a complex network with multiple participants and using Access Control Rules (ACL) to provide them network access permissions. In this journey, you will run Hyperledger Fabric on the Cloud.
+[Part 2](https://github.com/IBM/SmartContractTrading-wFabric1-4-VSCodeExt), we will explore more about creating a complex network with multiple participants and using Access Control Rules (ACL) to provide them network access permissions. In this journey, you will run Hyperledger Fabric on the Cloud.
 
 When you have completed this code pattern, you will understand how to:
 
