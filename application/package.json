@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/nodemon/bin/nodemon.js src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -15,5 +16,8 @@
     "fabric-network": "^1.4.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
   }
 }
