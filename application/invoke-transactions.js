@@ -7,8 +7,14 @@
 const { FileSystemWallet, Gateway } = require('fabric-network');
 const fs = require('fs');
 const path = require('path');
+const configPath = path.join(process.cwd(), 'config.json');
+const configJSON = fs.readFileSync(configPath, 'utf8');
+const config = JSON.parse(configJSON);
 
-const ccpPath = path.resolve(__dirname, 'mychannel_bnnetwork_profile.json');
+var ccpPath = config.connection_file;
+var appAdmin = config.appAdmin;
+var channelName = config.channel_name;
+var smartContractName = config.smart_contract_name;
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
 
@@ -21,22 +27,22 @@ async function main() {
         console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the user.
-        const userExists = await wallet.exists('app-admin');
+        const userExists = await wallet.exists(appAdmin);
         if (!userExists) {
-            console.log('An identity for the user "app-admin" does not exist in the wallet');
+            console.log(`An identity for the user ${appAdmin} does not exist in the wallet`);
             console.log('Run the enrollAdmin.js application before retrying');
             return;
         }
 
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: 'app-admin' , discovery: {enabled: true, asLocalhost:false }});
+        await gateway.connect(ccp, { wallet, identity: appAdmin , discovery: {enabled: true, asLocalhost:false }});
 
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('mychannel');
+        const network = await gateway.getNetwork(channelName);
 
         // Get the contract from the network.
-        const contract = network.getContract('blockchain-network');
+        const contract = network.getContract(smartContractName);
 
 
         //Begin submitting transactions

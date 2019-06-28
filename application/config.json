@@ -1,7 +1,7 @@
 {
     "channel_name": "mychannel",
-    "smart_contract_name": "bnnetwork",
-    "connection_file": "mychannel_bnnetwork_profile.json",
+    "smart_contract_name": "blockchain-network",
+    "connection_file": "mychannel_blockchain-network_profile.json",
     "appAdmin": "app-admin",
     "appAdminSecret": "app-adminpw",
     "orgMSPID": "org1msp",
