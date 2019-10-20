@@ -4,7 +4,6 @@ Creating a basic Blockchain network using the IBM Blockchain Platform V2.0
 
 
 
-
 Welcome to the first in a series of building a Blockchain application using the IBM Blockchain Platform V2.0. **Part 1** will show you how to set up your Blockchain network on the IBM Cloud. This will be the "Hello World" of Hyperledger samples using the IBM Blockchain Platform V2.0. - so beginner developers should be able to manage this. This pattern shows you how to test your network by packaging your smart contract using the IBM Blockchain Platform extension on VS Code and then deploy it onto the network.  The network uses Hyperledger Fabric V1.4.
 
 Hyperledger Fabric is a blockchain framework implementation and one of the Hyperledger projects hosted by The Linux Foundation. Intended as a foundation for developing applications or solutions with a modular architecture, Hyperledger Fabric allows components, such as consensus and membership services, to be plug-and-playIn
