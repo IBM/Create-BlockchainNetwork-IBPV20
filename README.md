@@ -436,36 +436,35 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - You should see the following in the terminal:
     
     ```bash
-    Wallet path: /Users/laurabennett/2019/patterns/Create-BlockchainNetwork-IBPV20/application/wallet
-    2019-03-05T05:17:59.823Z - error: [Client.js]: Channel not found for name mychannel
+    Wallet path: /Users/snyk/CognitiveApps/code-patterns/Create-BlockchainNetwork-IBPV20/Create-BlockchainNetwork-IBPV20/application/wallet
 
     Submit AddTrader transaction.
-    2019-03-05T05:18:02.253Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "1c63161c4b86abbe6bcc9b243635cf9c2303b5dfa4b024fa6f5aba726ab2c05e"
-    
     addTraderAResponse: 
-    "{\"traderId\":\"traderA\",\"firstName\":\"Carlos\",\"lastName\":\"Roca\"}"
-    addTraderAResponse_JSON.parse: {"traderId":"traderA","firstName":"Carlos","lastName":"Roca"}
+    {"traderId":"traderA","firstName":"Carlos","lastName":"Roca"}
+    addTraderAResponse_JSON.parse: 
+    { traderId: 'traderA', firstName: 'Carlos', lastName: 'Roca' }
 
     Submit AddTrader transaction.
-    2019-03-05T05:18:03.488Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "d64ffa66c6461265474095606020bebcf0077d8be9ee4e6a4791313d6dea6fa1"
-    
     addTraderBResponse: 
-    "{\"traderId\":\"traderB\",\"firstName\":\"Lisa\",\"lastName\":\"Smith\"}"
-    addTraderBResponse_JSON.parse: {"traderId":"traderB","firstName":"Lisa","lastName":"Smith"}
+    {"traderId":"traderB","firstName":"Lisa","lastName":"Smith"}
+    addTraderBResponse_JSON.parse: 
+    { traderId: 'traderB', firstName: 'Lisa', lastName: 'Smith' }
 
-    Submit AddCommodity transaction.  
-    2019-03-05T05:18:04.724Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "e2af5bf3a93355927a7a3afc72443228cfdd2efcc499de36a37cb73cb689581a"
-
+    Submit AddCommodity transaction.
     addCommodityResponse: 
-    "{\"tradingSymbol\":\"commodityA\",\"description\":\"farm-commodity\",\"traderId\":\"traderA\"}" 
-    addCommodityResponse_JSON.parse: {"tradingSymbol":"commodityA","description":"farm-commodity","traderId":"traderA"}
+    {"tradingSymbol":"commodityA","description":"farm-commodity","traderId":"traderA"}
+    addCommodityResponse_JSON.parse: 
+    { tradingSymbol: 'commodityA',
+      description: 'farm-commodity',
+      traderId: 'traderA' }
 
     Submit Commodity trade transaction.
-    2019-03-05T05:18:05.964Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "9146776c552bb4374920a2e511d8b4d2fb243e3938560f4aa87ceb8480a84a8e"
-    
     commodityTradeResponse: 
-    "{\"description\":\"farm-commodity\",\"traderId\":\"traderB\",\"tradingSymbol\":\"commodityA\"}"
-    commodityTradeResponse_JSON.parse: {"description":"farm-commodity","traderId":"traderB","tradingSymbol":"commodityA"}
+    {"description":"farm-commodity","traderId":"traderB","tradingSymbol":"commodityA"}
+    commodityTradeResponse_JSON.parse: 
+    { description: 'farm-commodity',
+      traderId: 'traderB',
+      tradingSymbol: 'commodityA' }
     ```
 
 
