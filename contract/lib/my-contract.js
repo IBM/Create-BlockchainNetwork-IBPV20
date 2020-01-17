@@ -14,57 +14,57 @@ class MyContract extends Contract {
     async instantiate(ctx) {
         console.info('instantiate');
 
-        // Define participant       
-        var emptyList = [];
+        // Define participant
+        let emptyList = [];
         await ctx.stub.putState('traders', Buffer.from(JSON.stringify(emptyList)));
     }
 
 
-    // define participant function 
+    // define participant function
     async AddTrader(ctx, traderId, firstName, lastName) {
 
-        var trader = {
-            "traderId": traderId,
-            "firstName": firstName,
-            "lastName": lastName
-        }
+        let trader = {
+            traderId: traderId,
+            firstName: firstName,
+            lastName: lastName
+        };
 
-        
+
         await ctx.stub.putState(traderId, Buffer.from(JSON.stringify(trader)));
 
         //add traderId to 'trader' key
         const data = await ctx.stub.getState('traders');
-        let traders = JSON.parse(data.toString());        
+        let traders = JSON.parse(data.toString());
         traders.push(traderId);
-        await ctx.stub.putState('traders', Buffer.from(JSON.stringify(traders)));        
+        await ctx.stub.putState('traders', Buffer.from(JSON.stringify(traders)));
 
         return JSON.stringify(trader);
     }
 
-    // define creating the asset function 
+    // define creating the asset function
     async AddCommodity(ctx, tradingSymbol, description, traderId) {
 
-        // verify trader id exists and retrieve it 
+        // verify trader id exists and retrieve it
         let traderData = await ctx.stub.getState(traderId);
         let trader;
         if (traderData) {
             trader = JSON.parse(traderData.toString());
             if (trader.traderId !== traderId) {
-             throw new Error('trader not identified');
-           }
+                throw new Error('trader not identified');
+            }
         } else {
             throw new Error('trader not found');
         }
 
         let commodity = {
-            "tradingSymbol": tradingSymbol,
-            "description": description,
-            "traderId": traderId
-        }
+            tradingSymbol: tradingSymbol,
+            description: description,
+            traderId: traderId
+        };
 
-        
+
         await ctx.stub.putState(tradingSymbol, Buffer.from(JSON.stringify(commodity)));
-       
+
 
         return JSON.stringify(commodity);
     }
@@ -75,10 +75,10 @@ class MyContract extends Contract {
     // Define performing a trade where a new owner of the asset is assigned
     async commodityTrade(ctx, tradingSymbol, traderId) {
 
-        // verify id 
+        // verify id
         let traderData = await ctx.stub.getState(traderId);
         if (!traderData)  //{
-            throw new Error('trader not found');
+        {throw new Error('trader not found');}
 
         //update owner of Trade/Commodity
         const commodityData = await ctx.stub.getState(tradingSymbol);
@@ -91,10 +91,10 @@ class MyContract extends Contract {
             throw new Error('commodity not found');
         }
 
-        await ctx.stub.putState(tradingSymbol, Buffer.from(JSON.stringify(commodity)));      
+        await ctx.stub.putState(tradingSymbol, Buffer.from(JSON.stringify(commodity)));
 
         return JSON.stringify(commodity);
-        
+
     }
 
     // get the state from key
@@ -103,7 +103,7 @@ class MyContract extends Contract {
         const data = await ctx.stub.getState(key);
         let jsonData = JSON.parse(data.toString());
         return JSON.stringify(jsonData);
-        
+
     }
 
 }
