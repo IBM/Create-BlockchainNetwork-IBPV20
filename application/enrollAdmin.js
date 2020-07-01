@@ -5,7 +5,7 @@
 'use strict';
 
 const FabricCAServices = require('fabric-ca-client');
-const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
+const { Wallets } = require('fabric-network');
 const fs = require('fs');
 const path = require('path');
 
@@ -33,21 +33,28 @@ async function main() {
 
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), 'wallet');
-        const wallet = new FileSystemWallet(walletPath);
+        const wallet = await Wallets.newFileSystemWallet(walletPath);
         console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the admin user.
-        const adminExists = await wallet.exists(appAdmin);
-        if (adminExists) {
-            console.log(`An identity for the admin user ${appAdmin} already exists in the wallet`);
+        const identity = await wallet.get(appAdmin);
+        if (identity) {
+            console.log('An identity for the admin user ' + appAdmin + ' already exists in the wallet');
             return;
         }
 
         // Enroll the admin user, and import the new identity into the wallet.
         const enrollment = await ca.enroll({ enrollmentID: appAdmin, enrollmentSecret: appAdminSecret });
-        const identity = X509WalletMixin.createIdentity(orgMSPID, enrollment.certificate, enrollment.key.toBytes());
-        wallet.import(appAdmin, identity);
-        console.log(`msg: Successfully enrolled admin user ${appAdmin} and imported it into the wallet`);
+        const x509Identity = {
+            credentials: {
+                certificate: enrollment.certificate,
+                privateKey: enrollment.key.toBytes(),
+            },
+            mspId: orgMSPID,
+            type: 'X.509',
+        };
+        await wallet.put(appAdmin, x509Identity);
+        console.log('Successfully enrolled admin user ' + appAdmin + ' and imported it into the wallet');
 
     } catch (error) {
         console.error(`Failed to enroll admin user ${appAdmin}: ${error}`);

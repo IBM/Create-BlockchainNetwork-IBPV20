@@ -1,10 +1,10 @@
 {
     "channel_name": "mychannel",
     "smart_contract_name": "blockchain-network",
-    "connection_file": "mychannel_blockchain-network_profile.json",
+    "connection_file": "Org1MSP_profile.json",
     "appAdmin": "app-admin",
     "appAdminSecret": "app-adminpw",
-    "orgMSPID": "org1msp",
+    "orgMSPID": "Org1MSP",
     "caName": "173.193.79.114:31853",
     "userName": "user1",
     "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
