@@ -24,7 +24,7 @@ When you have completed this code pattern, you will understand how to:
 ## Architecture flow
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/72624131-5cf65c80-3914-11ea-85cf-53806a073433.png">
+  <img src="https://user-images.githubusercontent.com/8854447/86373941-f9f24b00-bc51-11ea-8884-72b5dd9e522c.png">
 </p>
 
 1. The developer develops a smart contract using Node.js.
