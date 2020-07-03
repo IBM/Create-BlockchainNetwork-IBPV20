@@ -3,7 +3,7 @@
 
 # Create-BlockchainNetwork-IBPV25
 
-> **NOTE**: This developer pattern creates a blockchain network on *IBM Blockchain Platform version **2.5*** using the *Hyperledger Ledger Fabric version **2.1***
+> **NOTE**: This developer pattern creates a blockchain network on *IBM Blockchain Platform version **2.5*** using the *Hyperledger Fabric version **2.1***
 
 Creating a basic Blockchain network using the IBM Blockchain Platform version 2.5.
 
